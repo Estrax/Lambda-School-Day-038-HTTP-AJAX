@@ -34,4 +34,6 @@
 
 .friend {
   border: 1px solid red;
+  width: 24%;
+  display: inline-block;
 }
