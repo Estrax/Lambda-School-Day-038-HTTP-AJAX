@@ -9,15 +9,31 @@ class App extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			friends: []
+			friends: [],
+			id: -1,
+			update: false
 		};
 
+		this.getAllFriends = this.getAllFriends.bind(this);
 		this.addNewFriend = this.addNewFriend.bind(this);
 		this.updateFriend = this.updateFriend.bind(this);
 		this.deleteFriend = this.deleteFriend.bind(this);
+		this.setUser = this.setUser.bind(this);
 	}
 
 	componentDidMount() {
+		this.getAllFriends();
+	}
+
+	setUser(id) {
+		this.setState({
+			...this.state,
+			id: id,
+			update: true
+		});
+	}
+
+	getAllFriends() {
 		axios
 			.get('http://localhost:5000/friends')
 			.then(res => this.setState({ ...this.state, friends: res.data }))
@@ -57,11 +73,12 @@ class App extends Component {
 	render() {
 		return (
 			<div>
+				<h1>Friends list</h1>
 				<Switch>
-					<Route path="/" exact render={() => <Friends friends={this.state.friends} editFriend={this.editForm} deleteFriend={this.deleteFriend} />} />
+					<Route path="/" exact render={() => <Friends friends={this.state.friends} editFriend={this.setUser} deleteFriend={this.deleteFriend} />} />
 				</Switch>
 
-				<FriendForm submitForm={this.addNewFriend} />
+				<FriendForm id={this.state.id} update={this.state.update} updateForm={this.updateFriend} submitForm={this.addNewFriend} />
 			</div>
 		);
 	}
