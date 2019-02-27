@@ -22,18 +22,34 @@ class App extends Component {
 			.catch(err => {throw new Error(err)});
 	}
 
-	addNewFriend(e, user) {
-		e.preventDefault();
-		let newUser = {
-			id: this.state.friends.length+1,
-			name: user.name,
-			age: user.age,
-			email: user.email
-		}
-		this.setState({
-			...this.state,
-			friends: [...this.state.friends, newUser]
-		});
+	addNewFriend(user) {
+		axios
+			.post('http://localhost:5000/friends', {
+				id: this.state.friends.length+1,
+				name: user.name,
+				age: user.age,
+				email: user.email
+			})
+			.then(res => this.setState({ friends: res.data }))
+			.catch(err => {throw new Error(err)});
+	}
+
+	updateFriend(user) {
+		axios
+			.put(`http://localhost:5000/friends/${user.id}`, {
+				name: user.name,
+				age: user.age,
+				email: user.email
+			})
+			.then(res => this.setState({ friends: res.data }))
+			.catch(err => { throw new Error(err)});
+	}
+
+	deleteFriend(e, user) {
+		axios
+			.delete(`http://localhost:5000/friends/${user.id}`)
+			.then(res => this.setState({ friends: res.data }))
+			.catch(err => { throw new Error(err)});
 	}
 
 	render() {
