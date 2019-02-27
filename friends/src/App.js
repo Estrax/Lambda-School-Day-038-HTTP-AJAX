@@ -3,6 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 import axios from 'axios';
 import './App.css';
 import Friends from './components/Friends';
+import FriendForm from './components/FriendForm';
 
 class App extends Component {
 	constructor(props) {
@@ -59,6 +60,8 @@ class App extends Component {
 				<Switch>
 					<Route path="/" exact render={() => <Friends friends={this.state.friends} editFriend={this.editForm} deleteFriend={this.deleteFriend} />} />
 				</Switch>
+
+				<FriendForm submitForm={this.addNewFriend} />
 			</div>
 		);
 	}
