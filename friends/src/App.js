@@ -3,7 +3,6 @@ import { Switch, Route } from 'react-router-dom';
 import axios from 'axios';
 import './App.css';
 import Friends from './components/Friends';
-import NewFriend from './components/NewFriend';
 
 class App extends Component {
 	constructor(props) {
@@ -13,6 +12,8 @@ class App extends Component {
 		};
 
 		this.addNewFriend = this.addNewFriend.bind(this);
+		this.updateFriend = this.updateFriend.bind(this);
+		this.deleteFriend = this.deleteFriend.bind(this);
 	}
 
 	componentDidMount() {
@@ -45,9 +46,9 @@ class App extends Component {
 			.catch(err => { throw new Error(err)});
 	}
 
-	deleteFriend(e, user) {
+	deleteFriend(id) {
 		axios
-			.delete(`http://localhost:5000/friends/${user.id}`)
+			.delete(`http://localhost:5000/friends/${id}`)
 			.then(res => this.setState({ friends: res.data }))
 			.catch(err => { throw new Error(err)});
 	}
@@ -55,8 +56,9 @@ class App extends Component {
 	render() {
 		return (
 			<div>
-				<Friends friends={this.state.friends} />
-				<NewFriend submitForm={this.addNewFriend} />
+				<Switch>
+					<Route path="/" exact render={() => <Friends friends={this.state.friends} editFriend={this.editForm} deleteFriend={this.deleteFriend} />} />
+				</Switch>
 			</div>
 		);
 	}
