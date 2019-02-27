@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 
 const NewFriend = props => {
     const [user, setUser] = useState({ name: "", email: "", age: "" });
-    console.log(user);
 	return (
 		<form onSubmit={(e) => e.preventDefault()}>
             <input name="name" placeholder="Name" onChange={(e) => setUser({ ...user, name: e.target.value })} />
