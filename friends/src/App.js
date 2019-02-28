@@ -73,7 +73,7 @@ class App extends Component {
 	render() {
 		return (
 			<div>
-				<h1>Friends list</h1>
+				<h1 className="title">Friends list</h1>
 				<Switch>
 					<Route path="/" exact render={() => <Friends friends={this.state.friends} editFriend={this.setUser} deleteFriend={this.deleteFriend} />} />
 				</Switch>

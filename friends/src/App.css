@@ -1,39 +1,58 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.friendslist {
+  max-width: 1000px;
+  margin: 0 auto;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
 
 .friend {
-  border: 1px solid red;
-  width: 24%;
+  border: 1px solid brown;
+  background: rgb(243, 218, 191);
   display: inline-block;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .2);
+  transition: .3s;
+  width: 100%;
+  max-width: 250px;
+  padding: 20px;
+  margin: 20px;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, .2);
+}
+
+.title {
+  text-align: center;
+  font-size: 4rem;
+}
+
+.form-title {
+  text-align: center;
+  font-size: 3rem;
+}
+
+.form {
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto;
+  background: lightgreen;
+}
+
+.form input {
+  width: 100%;
+  max-width: 100%;
+  margin: 10px auto;
+  font-size: 1.2rem;
+}
+
+.form .form-btn {
+  width: 100%;
+  max-width: 100%;
+  margin: 10px auto;
 }
