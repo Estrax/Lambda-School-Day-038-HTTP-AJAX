@@ -61,6 +61,12 @@ class App extends Component {
 			})
 			.then(res => this.setState({ friends: res.data }))
 			.catch(err => { throw new Error(err)});
+		
+		this.setState({
+			...this.state,
+			id: -1,
+			update: false
+		});
 	}
 
 	deleteFriend(id) {
@@ -68,6 +74,12 @@ class App extends Component {
 			.delete(`http://localhost:5000/friends/${id}`)
 			.then(res => this.setState({ friends: res.data }))
 			.catch(err => { throw new Error(err)});
+
+		this.setState({
+			...this.state,
+			id: -1,
+			update: false
+		});
 	}
 
 	render() {
