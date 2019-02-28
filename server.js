@@ -46,6 +46,48 @@ let friends = [
     age: 47,
     email: 'luis@lambdaschool.com',
   },
+  {
+    id: 7,
+    name: 'Adam',
+    age: -1,
+    email: 'adam@example.org',
+  },
+  {
+    id: 8,
+    name: 'Dan',
+    age: -1,
+    email: 'dan@example.org',
+  },
+  {
+    id: 9,
+    name: 'Alexander',
+    age: -1,
+    email: 'alexander@example.org',
+  },
+  {
+    id: 10,
+    name: 'Isaac',
+    age: -1,
+    email: 'isaac@example.org',
+  },
+  {
+    id: 11,
+    name: 'Jordan',
+    age: -1,
+    email: 'jordan@example.org',
+  },
+  {
+    id: 12,
+    name: 'Lukas',
+    age: -1,
+    email: 'lukas@example.org',
+  },
+  {
+    id: 13,
+    name: 'Brandon',
+    age: -1,
+    email: 'brandon@example.org',
+  },
 ];
 
 app.use(cors());
